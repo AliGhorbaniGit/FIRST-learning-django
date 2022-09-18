@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block pageTitle %}  {% endblock pageTitle %}</title>
+    <style>
+        body {
+            width: 100%;
+            height: 1080px;
+        }
+
+        #main {
+
+            width: 99%;
+            height: 100%;
+            border: 2px solid gray;
+        }
+
+        #header {
+            width: 100%;
+            height: 35%;
+            background-color: #264b5d;
+            #color: red;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .card {
+            display: inline-block;
+            width: 25%;
+            height: 30%;
+            border: 2px solid red;
+            text-align: center;
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .title {
+            width: 100%;
+            height: 20%;
+            border-bottom: 2px solid darkred;
+
+            padding: 4px;
+            font-size: 20px;
+            color: orange;
+            border-radius: 10px;
+            background-color: #555555;
+        }
+
+        .contentt {
+            width: 100%;
+            height: 70%;
+        {#border: 2px solid yellow;#} margin: 2px 0 0 0;
+            padding-top: 10px;
+            color: green;
+            background-color: #a41515;
+
+        }
+
+        #auth {
+            color: red;
+            width: 12%;
+            height: 15%;
+            border: 2px solid yellow;
+            margin: 2px 0 0 0;
+            padding-top: 10px;
+
+            background-color: #a41515;
+        }
+
+        form > h1 {
+            border: 2px solid #1b1b1b;
+            border-radius: 5px;
+            background: #5b80b2;
+        }
+
+        form > div {
+            height: 60px;
+            width: 300px;
+            border: 2px solid #00363a;
+            border-radius: 5px;
+            background: #5b80b2;
+        }
+
+        #hid {
+            display: none;
+        }
+
+        #hov:hover > #hid {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+
+    <div id="header"> slalam ali</div>
+    <div>
+        {% if user.is_authenticated %}
+            <P id="hov"> welcome {{ user.username }} <a href="{% url 'logout' %}" id="hid"> log out </a></P>
+
+            {% csrf_token %}
+
+        {% else %}
+            <P> hanooze vared nashode iid ???? </P>
+            <a href="{% url 'login' %}"> log in </a>
+            <a href="{% url 'createuser' %}"> sin in </a>
+        {% endif %}
+    </div>
+
+    {% block content %} {% endblock content %}
+    <p></p>
+    {% block person %}
+
+    {% endblock person %}
+
+    {% block add %}
+
+    {% endblock add %}
+</div>
+</body>
+</html>

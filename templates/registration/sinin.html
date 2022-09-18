@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login 😊 </title>
+    <style>
+
+        p {
+            color: #006b1b;
+            width: 200px;
+            height: auto;
+            border: 2px solid #583305;
+            margin: 10px auto;
+            padding:5px;
+            border-radius: 7px;
+            box-shadow: #1b1b1b;
+            background: #81d4fa;
+        }
+
+        #submit {
+            box-shadow: #1b1b1b;
+            background: #264b5d;
+            width: 60px;
+            height: 40px;
+            border: 2px solid #00363a;
+            border-radius: 8px;
+            position: absolute;
+            top: 280px;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" id="submit">
+</form>
+</body>
+</html>
