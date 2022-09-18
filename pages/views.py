@@ -26,6 +26,7 @@ class ShowListView(generic.ListView):
     model = PageDetail
     template_name = 'pages/show_list.html'
     context_object_name = 'show_list'
+
     # if i wanna set a filter on my query_set i must use than : following cod instead of "  model = PageDetail "
     # def get_queryset(self):
     #   return PageDetail.objects.filter(status='pub')

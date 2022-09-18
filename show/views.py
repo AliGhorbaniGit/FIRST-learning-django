@@ -21,20 +21,20 @@ from django.views import generic
 
 
 
-# def show_all_comment(request, pk):
+def show_all_comment(request, pk):
+
+    try:
+        pd = ViewPersonal.objects.filter(status='pub')
+        data = PageDetail.objects.get(pk=pk)
+
+    except PageDetail.DoesNotExist :
+        print("not found")
+        data = None
+    return render(request, 'show/_base.html', {'person': pd, 'datas': data})
+
+
+# class ShowAllComment(generic.DetailView):
+#     model = PageDetail
+#     context_object_name = 'person'
+#     template_name = 'show/_base.html'
 #
-#     try:
-#         pd = ViewPersonal.objects.filter(status='pub')
-#         data = PageDetail.objects.get(pk=pk)
-#
-#     except PageDetail.DoesNotExist :
-#         print("not found")
-#         data = None
-#     return render(request, 'show/_base.html', {'person': pd, 'datas': data})
-
-
-class ShowAllComment(generic.DetailView):
-    model = PageDetail
-    context_object_name = 'person'
-    template_name = 'show/_base.html'
-
