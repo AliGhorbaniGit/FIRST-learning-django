@@ -11,11 +11,16 @@
     {% for show in show_list %}
         <div class="card">
             <div class="title"><a href='{% url 'show_all_comment' show.id %}'>{{ show.title }} </a></div>
-            <div class="contentt"> {{ show.text }} </div>
+            <div class="bottom"> {{ show.text }} </div>
+            {% if user.is_authenticated %}
+                <div id="edit">
+                    <a href="{% url  'view_update' show.id %}"> edit</a>
+                    <a href="{% url  'delete' show.id %}"> delete</a>
+                </div>
+            {% endif %}
         </div>
-        <a href="{% url  'view_update' show.id %}"> edit</a>
-        <a href="{% url  'delete' show.id %}"> delete</a>
-        <a href="{% url  'add' %}"> add </a>
+
+
     {% endfor %}
 
 {% endblock content %}

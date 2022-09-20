@@ -8,8 +8,8 @@
     <title></title>
     <style>
         #main {
-            width: 1500px;
-            height: 750px;
+            width: 100%;
+            height: 1080px;
             border: 1px dashed #000000;
 
         }
@@ -18,26 +18,28 @@
             width: 100%;
             height: 20%;
             border: 1px solid darkslateblue;
-            background-color: #993300;
+            background-color: #003366;
+            text-align: center;
+            font-size: 25px;
+            padding-top: 14px;
         }
 
         #content {
             width: 100%;
             height: 75%;
-            border: 1px solid #006b1b;
-            margin-top: 8px;
-            background-color: #333333;
+        {#border: 1px solid red;#}{#margin-top: 8px;#} background-color: #333333;
             text-align: center;
 
         }
 
         .comment {
-            width: 29%;
-            height: 35px;
-            border: 1px solid #993300;
+            width: 100%;
+            height: auto;
             margin: 5px;
-            background-color: #5b80b2;
+            background-color: #f5dd5d;
             border-radius: 5px;
+            border: 5px solid red;
+            padding-top: 10px;
         }
 
         a {
@@ -51,7 +53,7 @@
             margin: 5px;
             background-color: white;
             border-radius: 5px;
-            color: red;
+            color: blue;
 
         }
     </style>
@@ -59,18 +61,14 @@
 </head>
 <body>
 <div id="main">
-    <div id="header"></div>
+    <div id="header"> here you can see full comment</div>
     <div id="content">
 
         <div class="comment">{{ datas.text }}
 
             {% for foo in person %}
-                <a href='http://127.0.0.1:8000/1/{{ foo.id }}'>
-                <h2 id="auth"> {{ foo.id }} {{ foo.author }}</h2>
+                <h2 id="auth"> {{ foo.author }} commented : {{ foo.text }}</h2>
             {% endfor %}
-            </a>
-            {{ datas.realat }}
-
         </div>
 
 
